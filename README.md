@@ -59,7 +59,7 @@ Retorna la clase, la probabilidad y una imagen el mapa de calor generado por Gra
 
 ## read_img.py
 
-Script que lee la imagen en formato DICOM para visualizarla en la interfaz gráfica. Además, la convierte a arreglo para su preprocesamiento.
+Script que lee la imagen en formato DICOM y formato JPEG para visualizarla en la interfaz gráfica. Además, las convierte a arreglo para su preprocesamiento.
 
 ## preprocess_img.py
 
@@ -97,7 +97,24 @@ Para regularizar el modelo utilizamos 3 capas de Dropout al 20%; dos en los bloq
 
 Es una técnica utilizada para resaltar las regiones de una imagen que son importantes para la clasificación. Un mapeo de activaciones de clase para una categoría en particular indica las regiones de imagen relevantes utilizadas por la CNN para identificar esa categoría.
 
-Grad-CAM realiza el cálculo del gradiente de la salida correspondiente a la clase a visualizar con respecto a las neuronas de una cierta capa de la CNN. Esto permite tener información de la importancia de cada neurona en el proceso de decisión de esa clase en particular. Una vez obtenidos estos pesos, se realiza una combinación lineal entre el mapa de activaciones de la capa y los pesos, de esta manera, se captura la importancia del mapa de activaciones para la clase en particular y se ve reflejado en la imagen de entrada como un mapa de calor con intensidades más altas en aquellas regiones relevantes para la red con las que clasificó la imagen en cierta categoría.
+Grad-CAM realiza el cálculo del gradiente de la salida correspondiente a la clase a visualizar con respecto a las neuronas de una cierta capa de la CNN. Esto permite tener información de la importancia de cada neurona en el proceso de decisión de esa clase en particular. Una vez obtenidos estos pesos, se realiza una combinación lineal entre el mapa de activaciones de la capa y los pesos, de esta manera, se captura la importancia del mapa de activaciones para la clase en particular y se ve reflejado en la imagen de entrada como un mapa de calor con intensidades más altas
+
+## Acerca de tests
+
+contiene los archivos de pruebas unitarias, que son: test_load_model.py, test_read_img.py.
+
+# Acerca de test_load_model.py
+
+esta prueba unitaria comprueba que la función model() carga correctamente un modelo (simulado) usando load_model, y verifica que se llame a load_model exactamente una vez con la ruta correcta del modelo. Esto garantiza que la función model() se comporte como se espera cuando se llama con un modelo existente.
+
+# Acerca de test_read_img.py
+
+estas pruebas aseguran que las funciones read_dicom_file y read_jpg_file manejen correctamente la lectura de archivos DICOM y JPEG respectivamente, verificando que devuelvan los tipos de datos esperados y que interactúen correctamente con las funciones de lectura subyacentes (pydicom.read_file y cv2.imread). Los mocks permiten controlar el comportamiento de estas funciones externas durante las pruebas unitarias.
+
+## Buenas prácticas de ingeniería de software (cohesión y acoplamiento)
+
+El diseño actual del código está optimizado en términos de cohesión y acoplamiento, lo que significa que cumple con los estándares de calidad y buenas prácticas de ingeniería de software.
+Debido a estos principios de diseño bien aplicados, no fue necesario realizar cambios significativos en el código.
 
 ## Proyecto original realizado por:
 

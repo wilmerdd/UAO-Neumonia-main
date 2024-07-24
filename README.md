@@ -116,6 +116,10 @@ estas pruebas aseguran que las funciones read_dicom_file y read_jpg_file manejen
 El diseño actual del código está optimizado en términos de cohesión y acoplamiento, lo que significa que cumple con los estándares de calidad y buenas prácticas de ingeniería de software.
 Debido a estos principios de diseño bien aplicados, no fue necesario realizar cambios significativos en el código.
 
+## Repositorio Imagen Docker en Docker hub
+
+https://hub.docker.com/repository/docker/wilduqued/neumonia-predic2/general
+
 ## Proyecto original realizado por:
 
 Isabella Torres Revelo - https://github.com/isa-tr
